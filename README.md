@@ -1,6 +1,6 @@
 # Automazione-plotting-serie-a
+> **ATTENZIONE** Il programma non è ancora in grado di installare tutte le dipendenze
 ## Utilizzo programma (solo Linux/macOS al momento)
-> **ATTENZIONE** Il programma non è ancora in grado di installare tutte le dipendenze<
 Usere cd per navigare alla cartella in cui avete clonato la repository
 ```shell
 ./plot.sh installa
