@@ -103,3 +103,4 @@ ENV/
 # PERSONALE
 *.png
 *.csv
+node_modules/
