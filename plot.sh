@@ -18,7 +18,7 @@ fi
 if [ "$1" == "installa" ] ; then
   cd request;
   npm install;
-  sudo easy_install pip;
+  sudo apt install pip || sudo easy_install pip;
   sudo pip install pipenv;
   if [ $python == 1 ] && [ $pip == 1 ] ; then
     echo "Dipendenze installate!\nAvvia il programma con\n\t ./plot.sh genera\n, se non funziona segnala il problema a \n https://github.com/carzacc/Automazione-plotting-serie-a/issues"
