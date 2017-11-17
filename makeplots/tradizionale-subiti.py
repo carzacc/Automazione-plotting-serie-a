@@ -5,7 +5,6 @@ import pandas as pd
 
 df = pd.read_csv("csvs/dati.csv")
 print (df)
-# Fixing random state for reproducibility
 
 y = df['Tradizionale']
 x = df['Gol Subiti']
