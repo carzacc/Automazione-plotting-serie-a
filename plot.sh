@@ -23,6 +23,8 @@ if [ "$1" == "installa" ] ; then
   sudo dnf install python-pip -y;
   sudo easy_install pip;
   sudo pip install pipenv;
+  cd ../makeplots;
+  pipenv install;
   if [ $python == 1 ] && [ $pip == 1 ] ; then
     echo "Dipendenze installate!\nAvvia il programma con\n\t ./plot.sh genera\n, se non funziona segnala il problema a \n https://github.com/carzacc/Automazione-plotting-serie-a/issues"
   fi
