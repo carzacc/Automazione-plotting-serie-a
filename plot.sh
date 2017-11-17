@@ -17,10 +17,10 @@ fi
 
 if [ "$1" == "installa" ] ; then
   cd request;
-  sudo apt install npm;
+  sudo apt install npm -y;
   npm install;
-  sudo apt install python-pip;
-  sudo dnf install python-pip;
+  sudo apt install python-pip -y;
+  sudo dnf install python-pip -y;
   sudo easy_install pip;
   sudo pip install pipenv;
   if [ $python == 1 ] && [ $pip == 1 ] ; then
