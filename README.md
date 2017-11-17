@@ -1,4 +1,5 @@
 # Automazione-plotting-serie-a
+> **ATTENZIONE** Il programma potrebbe non essere ancora in grado di installare tutte le dipendenze
 ## Utilizzo programma (solo Linux/macOS al momento)
 Usere cd per navigare alla cartella in cui avete clonato la repository
 ```shell
