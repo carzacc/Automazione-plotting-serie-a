@@ -18,9 +18,12 @@ fi
 if [ "$1" == "installa" ] ; then
   cd request;
   sudo apt install npm -y;
+  sudo yum install npm -y;
   npm install;
   sudo apt install python-pip -y;
-  sudo dnf install python-pip -y;
+  sudo apt install python-tk -y;
+  sudo yum install python-tk -y;
+  sudo yum install python-pip -y;
   sudo easy_install pip;
   sudo pip install pipenv;
   cd ../makeplots;
