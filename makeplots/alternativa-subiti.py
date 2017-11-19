@@ -8,7 +8,10 @@ print (df)
 
 y = df['Alternativa']
 x = df['Gol Subiti']
+n = df['Squadra']
 plt.scatter(x, y)
 plt.ylabel("Punti Alternativa")
 plt.xlabel("Gol Subiti")
+for i, txt in enumerate(n):
+    plt.annotate(txt, (x[i], y[i]))
 plt.savefig('alternativa-subiti.png')

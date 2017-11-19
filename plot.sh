@@ -34,9 +34,11 @@ if [ "$1" == "installa" ] ; then
   fi
 fi
 if [ "$1" == "genera" ] ; then
-  echo "Sto prendendo i dati..."
-  mkdir csvs;
-  node request/get;
+  if [ "$2" != "dontfetch" ]; then
+    echo "Sto prendendo i dati..."
+    mkdir csvs;
+    node request/get;
+  fi
   echo "Sto generando le immagini..."
   pipenv run python makeplots/alternativa-fatti.py;
   pipenv run python makeplots/alternativa-subiti.py;
