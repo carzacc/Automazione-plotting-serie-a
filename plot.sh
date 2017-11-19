@@ -34,7 +34,7 @@ if [ "$1" == "installa" ] ; then
   fi
 fi
 if [ "$1" == "genera" ] ; then
-  if [ "$2" != "dontfetch" ]; then
+  if [ "$2" != "nonscaricare" ]; then
     echo "Sto prendendo i dati..."
     mkdir csvs;
     node request/get;
