@@ -44,5 +44,6 @@ if [ "$1" == "genera" ] ; then
   pipenv run python makeplots/alternativa-subiti.py;
   pipenv run python makeplots/tradizionale-fatti.py;
   pipenv run python makeplots/tradizionale-subiti.py;
+  pipenv run python makeplots/punti-tempo.py;
   echo "Fatto!"
 fi
