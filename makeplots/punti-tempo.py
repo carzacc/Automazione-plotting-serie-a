@@ -6,6 +6,14 @@ import pandas as pd
 import requests
 from numpy import nditer
 
+NUMERIGIORNATE = range(4, 20)
+NUMEROGIORNATE = range(0, 16)
+
+# TIPOCLASSIFICA = 'Tradizionale'
+# TIPOCLASSIFICA = 'Alternativa'
+TIPOCLASSIFICA = 'Somma'
+
+
 
 linkbase = 'http://algorest.carzacc.info/?g='
 giornate = []
@@ -30,52 +38,52 @@ puntisassuolo = []
 punticrotone = []
 punticagliari = []
 
-for giornatacorrente in range(4,16):
+for giornatacorrente in NUMERIGIORNATE:
     r = requests.get(linkbase+str(giornatacorrente)).json()
     giornate.append(r)
 
-for giornata in range(0,12):
+for giornata in NUMEROGIORNATE:
     for squadra in range(0,20):
         if giornate[giornata][squadra]['Squadra']=='Inter':
-            puntinter.append(giornate[giornata][squadra]['Tradizionale'])
+            puntinter.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='juventus':
-            puntijuve.append(giornate[giornata][squadra]['Tradizionale'])
+            puntijuve.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='Napoli':
-            puntinapoli.append(giornate[giornata][squadra]['Tradizionale'])
+            puntinapoli.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='Milan':
-            puntimilan.append(giornate[giornata][squadra]['Tradizionale'])
+            puntimilan.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='Chievo':
-            puntichievo.append(giornate[giornata][squadra]['Tradizionale'])
+            puntichievo.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='Cagliari':
-            punticagliari.append(giornate[giornata][squadra]['Tradizionale'])
+            punticagliari.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='Crotone':
-            punticrotone.append(giornate[giornata][squadra]['Tradizionale'])
+            punticrotone.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='Sassuolo':
-            puntisassuolo.append(giornate[giornata][squadra]['Tradizionale'])
+            puntisassuolo.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='Torino':
-            puntitorino.append(giornate[giornata][squadra]['Tradizionale'])
+            puntitorino.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='Spal':
-            puntispal.append(giornate[giornata][squadra]['Tradizionale'])
+            puntispal.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='Genoa':
-            puntigenoa.append(giornate[giornata][squadra]['Tradizionale'])
+            puntigenoa.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='Atalanta':
-            puntiatalanta.append(giornate[giornata][squadra]['Tradizionale'])
+            puntiatalanta.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='Verona':
-            puntiverona.append(giornate[giornata][squadra]['Tradizionale'])
+            puntiverona.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='Roma':
-            puntiroma.append(giornate[giornata][squadra]['Tradizionale'])
+            puntiroma.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='Lazio':
-            puntilazio.append(giornate[giornata][squadra]['Tradizionale'])
+            puntilazio.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='Sampdoria':
-            puntisampdoria.append(giornate[giornata][squadra]['Tradizionale'])
+            puntisampdoria.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='Udinese':
-            puntiudinese.append(giornate[giornata][squadra]['Tradizionale'])
+            puntiudinese.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='Bologna':
-            puntibologna.append(giornate[giornata][squadra]['Tradizionale'])
+            puntibologna.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='Fiorentina':
-            puntifiorentina.append(giornate[giornata][squadra]['Tradizionale'])
+            puntifiorentina.append(giornate[giornata][squadra][TIPOCLASSIFICA])
         if giornate[giornata][squadra]['Squadra']=='Benevento':
-            puntibenevento.append(giornate[giornata][squadra]['Tradizionale'])
+            puntibenevento.append(giornate[giornata][squadra][TIPOCLASSIFICA])
 punti = [
     puntinter,
     puntijuve,
@@ -96,14 +104,14 @@ squadre = [
     "Roma",
     "Sampdoria",
 ]
-for c in range(0,7):
-    elemento=punti[c]
+for c in range(0, 7):
+    elemento = punti[c]
     y = elemento
-    x = range(4,16)
+    x = NUMERIGIORNATE
     n = squadre
     plt.plot(x, y, label=squadre[c])
 
-plt.ylabel("Punti")
+plt.ylabel("Punti "+TIPOCLASSIFICA)
 plt.xlabel("Giornate")
 plt.legend()
 plt.savefig('puntisutempo.png')
